@@ -1,0 +1,21 @@
+[package]
+name = "tictactoe"
+version = "0.1.0"
+edition = "2024"
+default-run = "tictactoe"
+
+[[bin]]
+name = "tictactoe"
+path = "src/main.rs"
+
+[[bin]]
+name = "arena"
+path = "src/bin/arena.rs"
+
+[dependencies]
+rand = "0.10"
+
+# Optimize even in debug builds, so a depth-4 search fits the time limit on any laptop.
+# Without this, `cargo run` and `cargo test` would be five to ten times slower.
+[profile.dev]
+opt-level = 2
